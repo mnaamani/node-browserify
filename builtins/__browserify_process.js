@@ -38,6 +38,9 @@ process.title = 'browser';
 process.browser = true;
 process.env = {};
 process.argv = [];
+process.stdout = {write:function(x){console.log(x)}};
+process.stderr = {write:function(x){console.error(x)}};
+process.exit = function(){}
 
 process.binding = function (name) {
     if (name === 'evals') return (require)('vm')
